@@ -24,7 +24,6 @@ int main(){
 
 	        printf("\t \t \t \t**Welcome to the Ancient Crypto**\n ");
             printf("\n");
-            printf(" \t\t\tFirst press 1 to continue to be in this web\n");
             printf("Warning !!!!!  \tThis page is Coder Protected press that password to continue\n");
             printf("\nInput the password: ");
             scanf("%d",&pass);
@@ -70,7 +69,7 @@ time_t t;
 		scanf("%s",user.ac);
 		printf("Enter your Email:\t");
 		scanf("%s",user.email);
-		printf("Enter your new password:\t");
+		printf("Enter your New Password:\t");
 		scanf("%s",user.password);
 		user.balance=0;
 		stpcpy(filename,user.email);
@@ -87,7 +86,7 @@ time_t t;
 		scanf("%s",password);
 		fp = fopen(strcat(email,".dat"),"r");
 		if(fp == NULL)
-            printf("Account number not registered");
+            printf("Email Not Registered Yet In Anc");
 
 		else{
 			fread(&user,sizeof(struct user),1,fp);
@@ -112,14 +111,14 @@ time_t t;
 						break;
 
 					case 2:
-						printf("Enter amount to Invest:\t");
+						printf("Enter Amount to Invest:\t");
 						scanf("%f",&amount);
 						user.balance += amount;
 						user.balance=amount;
 						fp = fopen(email,"w");
 						fwrite(&user,sizeof(struct user),1,fp);
 						if(fwrite !=0)
-                        printf("\n\nYou have depostied taka.%.2f\n",amount);
+                                                printf("\n\nYou have Invested taka.%.2f\n",amount);
 						printf("In The amount is %.2f Anc\n",amount/100);
 						fclose(fp);
 						break;
@@ -129,14 +128,14 @@ time_t t;
 						printf("Enter withdraw amount Must Be in Anc:\t");
 						scanf("%f",&amount);
 						if(amount*100>user.balance)
-                        printf("\nSorry insufficeint Anc");
+                                                printf("\nSorry insufficeint Anc");
 						else {
-                        user.balance -= amount*100;
+                                                user.balance -= amount*100;
 						fp = fopen(email,"w");
 						fwrite(&user,sizeof(struct user),1,fp);
 						if(fwrite !=0)
-                        printf("\n\nYou have withdrawn %.1f Anc",amount);
-                        printf("\n\nYou have withdrawn %.1f taka\n",amount*100);
+                                                printf("\n\nYou have withdrawn %.1f Anc",amount);
+                                                printf("\n\nYou have withdrawn %.1f taka\n",amount*100);
 						fclose(fp);
 						}
 						break;
@@ -147,7 +146,7 @@ time_t t;
 						printf("Enter the amount to transfer in Anc:\t");
 						scanf("%f",&amount);
 						if(amount*100 > user.balance)
-                            printf("\nSorry insufficent balance");
+                                                printf("\nSorry insufficent Ancient Coin");
 						else {
 							fptr = fopen(strcat(email,".dat"),"r");
 							if(fptr==NULL) printf("Sorry this email is not registered yet in Anc Server");
@@ -161,7 +160,7 @@ time_t t;
 								fwrite(&usr,sizeof(struct user),1,fptr);
 								if(fwrite != 0){
 								    printf("Loading......Please Wait\n");
-                                    printf("Your trasfer is completed. You have trasnfered %.1f Anc to %s \n",amount,usr.email);
+                                                                    printf("Your trasfer is completed. You have trasnfered %.1f Anc to %s \n",amount,usr.email);
 									printf("Your have transfered %.1f Taka to %s \n",amount*100,usr.email);
 									fclose(fptr);
 									user.balance -= amount*100;
@@ -189,14 +188,14 @@ time_t t;
 
 					case 6 :
 					    printf("Welcome to Bkash Withdraw\n");
-                        printf("Please enter the Bkash Number to trasnfer balance:\t");
+                                            printf("Please enter the Bkash Number to trasnfer balance:\t");
 						scanf("%s",phone);
 						printf("Please Type Your Email to Confirm\n");
 						scanf("%s",email);
 						printf("Enter the amount to transfer in Taka:\t");
 						scanf("%f",&amount);
 						if(amount > user.balance)
-                            printf("\nSorry insufficent balance");
+                                           printf("\nSorry insufficent balance");
 						 {
 							fptr = fopen(strcat(email,".dat"),"r");
 							if(fptr==NULL) printf("Sorry this email is not registered yet in Anc Server");
@@ -210,7 +209,7 @@ time_t t;
 								fwrite(&usr,sizeof(struct user),1,fptr);
 								if(fwrite != 0){
 								    printf("Loading......Please Wait\n");
-                                    printf("Your trasfer is completed. You have trasnfered %.1f taka\n",amount,usr.email);
+                                          printf("Your trasfer is completed. You have trasnfered %.1f taka\n",amount,usr.email);
 									fclose(fptr);
 									user.balance -= amount-20;
 									strcpy(filename,user.email);
